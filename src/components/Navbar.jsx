@@ -23,7 +23,7 @@ export default function Navbar () {
       <h1 className="font-brigom text-3xl logo-text">
         Tastemap
         <span className="text-accent inline-block">
-          <sub>.</sub>
+          .
         </span>
       </h1>
 
