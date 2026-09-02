@@ -5,9 +5,97 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Brigom";
+  src: url('/fonts/Brigom.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ketchup Manis";
+  src: url('/fonts/KetchupManisDemo.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .h-btn {
+    @apply border border-border rounded-full cursor-pointer;
+  }
+
+  .btn {
+    @apply cursor-pointer;
+  }
+
+  .evergreen {
+    @apply text-[#103c1f];
+  }
+
+  .freshlime {
+    @apply text-[#8ed968];
+  }
+  
+  .bg-evergreen {
+    @apply bg-[#103c1f];
+  }
+
+  .bg-freshlime {
+    @apply bg-[#8ed968];
+  }
+}
+
+@layer components {
+  #header {
+    @apply p-3 flex items-center justify-between border-b;
+
+    section {
+      @apply flex items-center gap-2;
+
+      .search-container {
+        @apply border border-border px-2 py-1 rounded-xl flex items-center gap-2;
+
+        input {
+          &:focus {
+            @apply outline-none;
+          }
+        }
+
+        &:focus-within {
+          @apply border-2 border-accent;
+        }
+      }
+
+      .add-place {
+        @apply flex px-3 py-1 rounded-lg items-center gap-1;
+
+        span {
+          @apply text-xl;
+        }
+      }
+    }
+  }
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: 'Geist Variable', sans-serif;
+  --font-brigom: 'Brigom', sans-serif;
+  --font-ketchup: 'Ketchup Manis', serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,21 +137,21 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: oklch(0.955 0.0124 91.52);
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: oklch(0.955 0.0124 91.52);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.955 0.0124 91.52);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(0.9667 0.0362 118.9);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
+  --muted: oklch(0.9667 0.0362 118.9);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
+  --accent: oklch(0.6683 0.1759 39.11);
   --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: oklch(0.5819 0.2291 27.98);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
@@ -96,7 +184,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.6683 0.1759 39.11);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -115,16 +203,4 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-}
-
-@layer base {
-* {
-  @apply border-border outline-ring/50;
-  }
-body {
-  @apply bg-background text-foreground;
-  }
-html {
-  @apply font-sans;
-  }
 }
