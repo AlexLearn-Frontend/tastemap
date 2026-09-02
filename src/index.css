@@ -61,7 +61,7 @@
 
 @layer components {
   #header {
-    @apply p-3 flex items-center justify-between border-b;
+    @apply p-3 flex items-center justify-between border-b gap-1;
 
     section {
       @apply flex items-center gap-2;
