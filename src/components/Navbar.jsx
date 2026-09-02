@@ -29,6 +29,7 @@ export default function Navbar () {
           variant="ghost"
           size="icon"
           className="h-btn"
+          aria-label="Refresh places"
         >
           <RefreshCcw />
         </Button>
